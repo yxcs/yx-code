@@ -39,7 +39,9 @@
     "lint": "mwts check",
     "lint:fix": "mwts fix",
     "ci": "npm run cov",
-    "build": "mwtsc --cleanOutDir"
+    "build": "mwtsc --cleanOutDir",
+    "prisma:gen": "npx prisma generate",
+    "prisma:pulldb": "npx prisma db pull"
   },
   "repository": {
     "type": "git",

@@ -142,5 +142,11 @@
   "devDependencies": {
     "less": "^4.2.0",
     "less-loader": "^12.1.0"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:7001",
+			"changeOrigin": true
+    }
   }
 }

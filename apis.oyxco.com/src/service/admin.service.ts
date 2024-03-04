@@ -25,4 +25,13 @@ export class AdminService {
     });
     return res;
   }
+
+  async getAdminByByName(name: string) {
+    const res = await prisma.admin.findFirst({
+      where: {
+        user_name: name,
+      },
+    });
+    return res;
+  }
 }
