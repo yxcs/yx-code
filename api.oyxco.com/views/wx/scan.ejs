@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title><%= title %></title>
+    <script src="//s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:64b8318b/vconsole.min.js"></script>
+    <script>
+      window.vConsole = new window.VConsole();
+    </script>
+  </head>
+  <body>
+    <button id="scan">扫码</button>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.2/jquery.js"></script>
+    <script>
+      $('#scan').click(function (param) {
+        $.ajax({
+          type: 'get',
+          url: 'https://api.oyxco.com/fetch_signature',
+          data: {
+            url: window.location.href
+          },
+          success:function(result) {
+            wx.config({
+              debug: false,
+              appId: result.appId,
+              timestamp: '' + result.timestamp,
+              nonceStr: result.nonceStr,
+              signature: result.signature,
+              jsApiList: ['checkJsApi', 'scanQRCode']
+            });
+            wx.ready(function () {
+              wx.scanQRCode({
+                needResult: 1,
+                desc: 'scanQRCode desc',
+                success: function (res) {
+                  alert(res.resultStr)
+                },
+                cancel: function(){
+                  alert('已取消')
+                }
+              });
+            });
+          
+            wx.error(function (res) {
+              alert(res.errMsg);
+            });
+          }
+        })
+      })
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model test {
+  id   Int     @id @default(autoincrement())
+  name String? @db.VarChar(255)
+  age  Int?
+  sex  Int?
+}
+
+model poems {
+  id               Int      @id @default(autoincrement())
+  content          String?  @db.MediumText
+  translate        String?  @db.Text
+  translate_res    String?  @db.Text
+  tags             String?  @db.VarChar(512)
+  notes            String?  @db.Text
+  reference        String?  @db.Text
+  appreciation     String?  @db.Text
+  appreciation_res String?  @db.Text
+  onlyId           String?  @db.VarChar(64)
+  name             String?  @db.VarChar(255)
+  dynasty          String?  @db.VarChar(64)
+  author           String?  @db.VarChar(32)
+  sourceLink       String?  @db.VarChar(255)
+  type             String?  @db.VarChar(32)
+  format           String?  @db.VarChar(32)
+  updateAt         DateTime @db.Date
+  createAt         DateTime @db.Date
+}
+
+model ancient_book_views {
+  id        Int      @id @default(autoincrement())
+  o_id      String   @db.VarChar(64)
+  num       Int
+  nameStr   String   @db.VarChar(255)
+  author    String   @db.VarChar(64)
+  cont      String   @db.VarChar(255)
+  bookName  String   @db.VarChar(255)
+  fenlei    String   @db.VarChar(255)
+  yiyi      Int
+  bookID    Int
+  langduUrl String   @db.VarChar(255)
+  idjm      String   @db.VarChar(64)
+  bookIDjm  String   @db.VarChar(64)
+  content   String   @db.MediumText
+  createAt  DateTime @db.Date
+  updateAt  DateTime @db.Date
+}
+
+model ancients {
+  id         Int      @id @default(autoincrement())
+  o_id       String   @db.VarChar(32)
+  nameStr    String   @db.VarChar(32)
+  author     String   @db.VarChar(32)
+  chaodai    String   @db.VarChar(32)
+  cont       String   @db.VarChar(4096)
+  fenlei     String   @db.VarChar(255)
+  axing      Int
+  bxing      Int
+  cxing      Int
+  dxing      Int
+  exing      Int
+  ipStr      String   @db.VarChar(32)
+  nameStrKey String   @db.VarChar(32)
+  pic        String   @db.VarChar(32)
+  classStr   String   @db.VarChar(32)
+  type       String   @db.VarChar(32)
+  juCount    Int
+  idjm       String   @db.VarChar(255)
+  createAt   DateTime @db.Date
+  updateAt   DateTime @db.Date
+}
+
+model authors {
+  id          Int      @id @default(autoincrement())
+  avatar      String   @db.VarChar(255)
+  description String   @db.MediumText
+  onlyId      String   @db.VarChar(32)
+  name        String   @db.VarChar(255)
+  dynasty     String   @db.VarChar(32)
+  quantity    Int
+  lifetime    String   @db.Text
+  updateAt    DateTime @db.Date
+  createAt    DateTime @db.Date
+}
+
+model category {
+  id       Int      @id @default(autoincrement())
+  name     String   @db.VarChar(32)
+  type     String   @db.VarChar(255)
+  mainName String   @db.VarChar(32)
+  category String   @db.VarChar(255)
+  onlyId   String   @db.VarChar(255)
+  updateAt DateTime @db.Date
+  createAt DateTime @db.Date
+  linkTo   String   @db.VarChar(255)
+}
+
+model cipai {
+  id           Int      @id @default(autoincrement())
+  sourceLinkTo String   @db.VarChar(255)
+  name         String   @db.VarChar(32)
+  description  String   @db.VarChar(1000)
+  pager        Int
+  updateAt     DateTime @db.Date
+  createAt     DateTime @db.Date
+}
+
+model dynasty {
+  id          Int      @id @default(autoincrement())
+  parentName  String   @db.VarChar(32)
+  name        String   @db.VarChar(32)
+  pinyin      String   @db.VarChar(32)
+  years       String   @db.VarChar(32)
+  onlyId      Int
+  capital     String   @db.VarChar(32)
+  nowLocation String   @db.VarChar(32)
+  nation      String   @db.VarChar(32)
+  stateFound  String   @db.VarChar(32)
+  updateAt    DateTime @db.Date
+  createAt    DateTime @db.Date
+}
+
+model options {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(32)
+  tags        String   @db.MediumText
+  type        String   @db.VarChar(32)
+  updateAt    DateTime @db.Date
+  createAt    DateTime @db.Date
+  description String   @db.VarChar(255)
+}
+
+model recommend {
+  id       Int       @id @default(autoincrement())
+  orderId  Int?
+  poemsId  String?   @db.VarChar(32)
+  title    String?   @db.VarChar(32)
+  type     String?   @db.VarChar(32)
+  author   String?   @db.VarChar(32)
+  content  String?   @db.VarChar(1000)
+  dynasty  String?   @db.VarChar(32)
+  updateAt DateTime? @db.Date
+  createAt DateTime? @db.Date
+  bgType   String?   @db.VarChar(32)
+  isShow   Int?
+  bgUrl    String?   @db.VarChar(255)
+  bgColor  String?   @db.VarChar(32)
+  imgUrl   String?   @db.VarChar(255)
+}
+
+model single {
+  id       Int       @id @default(autoincrement())
+  author   String?   @db.VarChar(255)
+  dynasty  String?   @db.VarChar(32)
+  note     String?   @db.Text
+  content  String?   @db.Text
+  type     String?   @db.VarChar(255)
+  title    String?   @db.VarChar(32)
+  updateAt DateTime? @db.Date
+  createAt DateTime? @db.Date
+}
+
+model admin {
+  id            Int       @id @default(autoincrement())
+  user_name     String    @db.VarChar(32)
+  user_mail     String?   @db.VarChar(64)
+  user_phone    String    @default("") @db.VarChar(32)
+  user_uid      String?   @db.VarChar(32)
+  create_at     DateTime? @db.Date
+  update_at     DateTime? @db.Date
+  last_login_at DateTime? @db.Date
+  user_avatar   String?   @db.VarChar(255)
+  user_link     String?   @db.VarChar(255)
+  user_token    String?   @db.VarChar(255)
+  user_age      Int?
+  user_address  String?   @db.VarChar(255)
+  password      String    @db.VarChar(32)
+}
