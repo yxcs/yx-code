@@ -47,7 +47,7 @@ export class UserController {
       };
       return;
     }
-    const userInfo = await this.admin.getAdminByByPhone(data.userName);
+    const userInfo = await this.admin.getAdminByName(data.userName);
     const md5 = crypto.createHash('md5');
     const pwdMd5 = md5.update(data.password).digest('hex');
     if (userInfo?.password === pwdMd5) {

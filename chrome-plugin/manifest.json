@@ -1,0 +1,16 @@
+{
+  "name": "同鹿",
+  "description": "信息同步",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "logo.png"
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": [
+    "bookmarks"
+  ]
+}

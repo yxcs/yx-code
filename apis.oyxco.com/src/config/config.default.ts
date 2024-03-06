@@ -6,6 +6,9 @@ export default {
   koa: {
     port: 7001,
   },
+  cors: {
+    origin: '*'
+  },
   jwt: {
     secret: '1709460539734_9578', // fs.readFileSync('xxxxx.key')
     sign: {

@@ -26,7 +26,7 @@ export class AdminService {
     return res;
   }
 
-  async getAdminByByName(name: string) {
+  async getAdminByName(name: string) {
     const res = await prisma.admin.findFirst({
       where: {
         user_name: name,

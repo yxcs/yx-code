@@ -184,3 +184,12 @@ model admin {
   user_address  String?   @db.VarChar(255)
   password      String    @db.VarChar(32)
 }
+
+model bookmarks {
+  id        Int     @id @default(autoincrement())
+  bId       String? @db.VarChar(16)
+  parentId  String? @db.VarChar(16)
+  title     String? @db.VarChar(255)
+  url       String? @db.VarChar(255)
+  dateAdded String? @db.VarChar(16)
+}
