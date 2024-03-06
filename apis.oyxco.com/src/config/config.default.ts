@@ -4,7 +4,7 @@ export default {
   // use for cookie sign key, should change to your own and keep security
   keys: '1709460539734_9578',
   koa: {
-    port: 7001,
+    port: 4000,
   },
   cors: {
     origin: '*'

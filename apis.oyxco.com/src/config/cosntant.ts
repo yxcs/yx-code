@@ -1,5 +1,5 @@
 // export const BASE_URL = 'https://apis.oyxco.com';
-export const BASE_URL = 'http://localhost:7001';
+export const BASE_URL = 'http://localhost:4000';
 export const wxConfig = {
   appId: 'wx1f6a1c281091085d',
   appSecret: 'a604373613acf220fa1bcaef8bc9f689',

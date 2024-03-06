@@ -44,7 +44,7 @@
     "build": "mwtsc --cleanOutDir",
     "prisma:gen": "npx prisma generate",
     "prisma:pulldb": "npx prisma db pull",
-    "prd": "pm2 start NODE_ENV=production node ./bootstrap.js"
+    "prd": "pm2 start bootstrap.js --env production"
   },
   "repository": {
     "type": "git",
