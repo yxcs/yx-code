@@ -46,10 +46,19 @@ export class JwtMiddleware {
 
   // 配置忽略鉴权的路由地址
   public match(ctx: Context): boolean {
-    const ignore = ctx.path.indexOf('/api/admin/login') !== -1 ||
-      ctx.path.indexOf('/api/admin/register') !== -1 ||
-      ctx.path.indexOf('/api/bookmark') !== -1 ||
-      ctx.path.indexOf('/poem') !== -1;
+    const urls = [
+      '/api/admin/login',
+      '/api/admin/register',
+      '/api/bookmark',
+      '/poem',
+      '/url_token',
+      '/MP_verify_wXFlUkKrIuTXQO44.txt',
+      '/fetch_access_token',
+      '/jsapi_ticket',
+      '/fetch_signature',
+    ]
+    const path = ctx.path;
+    const ignore = urls.some(item => path.indexOf(item) > -1);
     return !ignore;
   }
 }
