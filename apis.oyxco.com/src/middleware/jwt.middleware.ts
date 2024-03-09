@@ -48,7 +48,8 @@ export class JwtMiddleware {
   public match(ctx: Context): boolean {
     const ignore = ctx.path.indexOf('/api/admin/login') !== -1 ||
       ctx.path.indexOf('/api/admin/register') !== -1 ||
-      ctx.path.indexOf('/api/bookmark') !== -1;
+      ctx.path.indexOf('/api/bookmark') !== -1 ||
+      ctx.path.indexOf('/poem') !== -1;
     return !ignore;
   }
 }
