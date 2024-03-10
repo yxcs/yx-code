@@ -56,6 +56,7 @@ export class JwtMiddleware {
       '/fetch_access_token',
       '/jsapi_ticket',
       '/fetch_signature',
+      '/api/poetry',
     ]
     const path = ctx.path;
     const ignore = urls.some(item => path.indexOf(item) > -1);

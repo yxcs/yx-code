@@ -3,7 +3,7 @@ import { Context } from '@midwayjs/web';
 import { prisma } from '../../db/prisma';
 const fs = require('fs');
 
-@Controller('/poem')
+@Controller('/poemdb')
 export class PoemController {
 
   @Inject()
