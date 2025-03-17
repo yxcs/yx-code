@@ -34,6 +34,9 @@ const MainLayout = () => {
         style={{
           display: 'flex',
           alignItems: 'center',
+          position: 'sticky',
+          top: 0,
+          zIndex: 999,
         }}
       >
         <div className="layout-logo" />
@@ -56,7 +59,6 @@ const MainLayout = () => {
       >
         <div
           style={{
-            height: 'calc(100vh - 88px)',
             padding: 16,
             borderRadius: borderRadiusLG,
             background: colorBgContainer,
@@ -69,3 +71,5 @@ const MainLayout = () => {
   );
 };
 export default MainLayout;
+
+// https://github.com/benhowell/react-grid-gallery
